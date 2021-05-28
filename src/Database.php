@@ -9,13 +9,10 @@ class Database
 
     public static function getConnection(): PDO
     {
-//        $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
-//        $dotenv->load();
-
-        $host = $_ENV['DB_HOST'];
-        $dbname = $_ENV['DB_NAME'];
-        $user = $_ENV['DB_USER'];
-        $password = $_ENV['DB_PASS'];
+        $host = $_SERVER['DB_HOST'];
+        $dbname = $_SERVER['DB_NAME'];
+        $user = $_SERVER['DB_USER'];
+        $password = $_SERVER['DB_PASS'];
 
         $dsn = "mysql:host=$host;dbname=$dbname";
         $db = new PDO($dsn, $user, $password);
