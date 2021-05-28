@@ -15,3 +15,6 @@ lint:
 
 serve:
 	php -S localhost:8081
+
+heroku-log:
+	heroku logs --tail

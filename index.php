@@ -2,6 +2,10 @@
 
 require_once 'vendor/autoload.php';
 
-$user = new \App\User('Max', 27);
+$db = \App\Database::getConnection();
 
-echo $user;
+$query = $db->query('SELECT name, age FROM test_table');
+
+$result = $query->fetch(PDO::FETCH_ASSOC);
+
+echo $result['name'] . ', ' . $result['age'];
