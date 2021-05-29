@@ -12,9 +12,13 @@ validate:
 
 lint:
 	composer run-script phpcs -- --standard=PSR12 src
+	composer exec --verbose phpstan -- --level=8 analyse src tests
+
+test:
+	composer exec --verbose phpunit tests
 
 serve:
-	php -S localhost:8081
+	php -S localhost:8082
 
 heroku-serve:
 	sudo heroku local web

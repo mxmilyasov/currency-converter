@@ -6,12 +6,12 @@ use Twig\{Environment, Error\LoaderError, Error\RuntimeError, Error\SyntaxError,
 
 class View
 {
-    public function render($template, $variables = [])
+    public function render(string $template, array $variables = []): string
     {
         $loader = new FilesystemLoader(APP_ROOT . '/template/');
 
         $twig = new Environment($loader, [
-            'cache' => APP_ROOT . '/cache',
+            'cache' => APP_ROOT . '/cache/twig/',
             'auto_reload' => true
         ]);
 
@@ -27,7 +27,7 @@ class View
             $tmpl = $twig->load($template);
             return $tmpl->render($variables);
         } catch (LoaderError | RuntimeError | SyntaxError $e) {
-            echo "Render template error. {$e->getMessage()}.";
+            return "Render template error. {$e->getMessage()}.";
         }
     }
 }

@@ -1,0 +1,8 @@
+parameters:
+    checkMissingIterableValueType: false
+    level: 6
+    paths:
+        - src
+        - tests
+    bootstrapFiles:
+            - config/constants.php

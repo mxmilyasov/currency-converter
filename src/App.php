@@ -5,7 +5,7 @@ namespace Mxmilyasov\Converter;
 class App
 {
 
-    public static function run()
+    public static function run(): void
     {
         $dispatcher = new \Phroute\Phroute\Dispatcher(self::getData());
 

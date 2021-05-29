@@ -1,7 +1,6 @@
 <?php
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
-
-define('APP_ROOT', dirname(__DIR__));
+require_once dirname(__DIR__) . '/config/constants.php';
 
 \Mxmilyasov\Converter\App::run();
