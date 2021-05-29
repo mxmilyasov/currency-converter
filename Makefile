@@ -16,5 +16,11 @@ lint:
 serve:
 	php -S localhost:8081
 
+heroku-serve:
+	sudo heroku local web
+
 heroku-log:
 	heroku logs --tail
+
+apache-kill:
+	sudo killAll httpd

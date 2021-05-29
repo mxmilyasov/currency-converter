@@ -1,3 +1,4 @@
 /vendor/
-text.txt
+/cache/
 .env
+text.txt

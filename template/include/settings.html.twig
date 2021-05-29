@@ -1,0 +1,161 @@
+{% extends 'index.html.twig' %}
+
+{% block titleText %}Settings{% endblock %}
+
+{% block customStylesheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" integrity="sha512-mR/b5Y7FRsKqrYZou7uysnOdCIJib/7r5QeJMFvLNHNhtye3xJp1TdJVPLtetkukFn227nKpXD9OjUc09lx97Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            display: none;
+        }
+    </style>
+
+{% endblock %}
+
+{% block body %}
+    <div class="app-content pt-3 p-md-3 p-lg-4">
+        <div class="container-xl">
+
+            <h1 class="app-page-title">My Account</h1>
+            <div class="row gy-4">
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
+                        <div class="app-card-header p-3 border-bottom-0">
+                            <div class="row align-items-center gx-3">
+                                <div class="col-auto">
+                                    <div class="app-icon-holder">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-sliders"
+                                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                  d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z"></path>
+                                        </svg>
+                                    </div>
+
+                                </div>
+                                <div class="col-auto">
+                                    <h4 class="app-card-title">Количество запросов конвертации</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="app-card-body px-4 w-100">
+                            <div class="item py-3">
+                                <div class="row justify-content-between align-items-center">
+                                    <div class="col-auto">
+
+                                        <form class="settings-form" id="history_input_form">
+                                            <div class="mb-3">
+                                                <label for="setting-input-1" class="form-label">Укажите желаемую длину списка истории запросов конвертации</label>
+                                                <input type="text" class="form-control w-50" id="setting-input-1" value="{{ historyListSize }}" name="historyListSize" required>
+                                            </div>
+                                            <button type="submit" class="btn app-btn-primary">Save Changes</button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
+                        <div class="app-card-header p-3 border-bottom-0">
+                            <div class="row align-items-center gx-3">
+                                <div class="col-auto">
+                                    <div class="app-icon-holder">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-sliders"
+                                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                  d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <h4 class="app-card-title">Отображаемые валюты</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="app-card-body px-4 w-100">
+                            <div class="item py-3">
+                                <div class="row justify-content-between align-items-center">
+                                    <div class="col-auto">
+
+                                        {% for currency in currencies  %}
+                                            <p>{{ currency.code }}</p>
+                                        {% endfor %}
+
+                                        <form class="settings-form" id="currency_select_form">
+                                            <div class="mb-3">
+                                                <label for="setting-input-2" class="form-label">Выберите предпочитаемые валюты</label><br>
+                                                <select id="setting-input-2" class="selectpicker" multiple data-size="4" name="currency_select" required>
+                                                    {% for currency in currencies  %}
+
+                                                        {% set selected = '' %}
+
+                                                        {% for selectedCurrency in selectedCurrencies %}
+                                                            {% if currency == selectedCurrency %}
+                                                                {% set selected = 'selected' %}
+                                                            {% endif %}
+                                                        {% endfor %}
+
+                                                        <option {{ selected }}>{{ currency }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn app-btn-primary">Save Changes</button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block customJavascripts %}
+
+    <script>
+
+        $(document).ready(function () {
+
+            // $("body").fadeIn(2000);
+            $("body").show();
+
+            $('#currency_select_form').on("submit", function (event) {
+                event.preventDefault();
+
+                const selectedCurrencies = document.querySelector('.filter-option-inner-inner').textContent;
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'set-currency',
+                    data: {selectedCurrencies: selectedCurrencies},
+                    success: (response) => {}
+                });
+
+            });
+
+            $('#history_input_form').on("submit", function (event) {
+                event.preventDefault();
+
+                const formData = $(this).serialize();
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'set-history-size',
+                    data: formData,
+                    success: (response) => {}
+                });
+
+            });
+
+        });
+
+    </script>
+{% endblock %}
