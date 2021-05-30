@@ -12,7 +12,7 @@ validate:
 
 lint:
 	composer run-script phpcs -- --standard=PSR12 src
-	composer exec --verbose phpstan -- --level=8 analyse src tests
+	composer exec --verbose phpstan -- --level=8 analyse src
 
 test:
 	composer exec --verbose phpunit tests
