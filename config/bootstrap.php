@@ -19,7 +19,7 @@ $config = Setup::createAnnotationMetadataConfiguration(
 
 $dotEnv = Dotenv::createImmutable(APP_ROOT);
 
-if (file_exists(".env")) {
+if (file_exists(APP_ROOT . "/.env")) {
     $dotEnv->load();
 }
 
