@@ -18,7 +18,10 @@ $config = Setup::createAnnotationMetadataConfiguration(
 );
 
 $dotEnv = Dotenv::createImmutable(APP_ROOT);
-$dotEnv->load();
+
+if (file_exists(".env")) {
+    $dotEnv->load();
+}
 
 $connection = [
     'dbname' => $_SERVER['DB_NAME'],
