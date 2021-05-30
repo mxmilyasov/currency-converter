@@ -134,7 +134,7 @@
 
                 $.ajax({
                     type: 'POST',
-                    url: 'set-currency',
+                    url: 'settings/set-currency',
                     data: {selectedCurrencies: selectedCurrencies},
                     success: (response) => {}
                 });
@@ -148,7 +148,7 @@
 
                 $.ajax({
                     type: 'POST',
-                    url: 'set-history-size',
+                    url: 'settings/set-history-size',
                     data: formData,
                     success: (response) => {}
                 });

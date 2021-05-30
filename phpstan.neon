@@ -6,3 +6,6 @@ parameters:
         - tests
     bootstrapFiles:
             - config/constants.php
+    ignoreErrors:
+        - '#Cannot call method fetch\(\) on PDOStatement\|false.#'
+        - '#Cannot call method fetchAll\(\) on PDOStatement\|false.#'

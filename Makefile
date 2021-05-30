@@ -18,7 +18,7 @@ test:
 	composer exec --verbose phpunit tests
 
 serve:
-	php -S localhost:8082
+	php -S localhost:8082 -t public/
 
 heroku-serve:
 	sudo heroku local web
@@ -28,3 +28,6 @@ heroku-log:
 
 apache-kill:
 	sudo killAll httpd
+
+db-update:
+	vendor/bin/doctrine orm:schema-tool:update --force
