@@ -3,7 +3,10 @@
 {% block titleText %}Settings{% endblock %}
 
 {% block customStylesheets %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" integrity="sha512-mR/b5Y7FRsKqrYZou7uysnOdCIJib/7r5QeJMFvLNHNhtye3xJp1TdJVPLtetkukFn227nKpXD9OjUc09lx97Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css"
+          integrity="sha512-mR/b5Y7FRsKqrYZou7uysnOdCIJib/7r5QeJMFvLNHNhtye3xJp1TdJVPLtetkukFn227nKpXD9OjUc09lx97Q=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <style>
         body {
@@ -17,7 +20,7 @@
     <div class="app-content pt-3 p-md-3 p-lg-4">
         <div class="container-xl">
 
-            <h1 class="app-page-title">My Account</h1>
+            <h1 class="app-page-title">Settings</h1>
             <div class="row gy-4">
                 <div class="col-12 col-md-6 col-lg-6">
                     <div class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
@@ -25,16 +28,17 @@
                             <div class="row align-items-center gx-3">
                                 <div class="col-auto">
                                     <div class="app-icon-holder">
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-sliders"
-                                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd"
-                                                  d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z"></path>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                             fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16">
+                                            <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"/>
+                                            <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z"/>
+                                            <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
                                         </svg>
                                     </div>
 
                                 </div>
                                 <div class="col-auto">
-                                    <h4 class="app-card-title">Количество запросов конвертации</h4>
+                                    <h4 class="app-card-title">History page length</h4>
                                 </div>
                             </div>
                         </div>
@@ -45,8 +49,10 @@
 
                                         <form class="settings-form" id="history_input_form">
                                             <div class="mb-3">
-                                                <label for="setting-input-1" class="form-label">Укажите желаемую длину списка истории запросов конвертации</label>
-                                                <input type="text" class="form-control w-50" id="setting-input-1" value="{{ historyListSize }}" name="historyListSize" required>
+                                                <label for="setting-input-1" class="form-label">Specify the desired
+                                                    length of the conversion request history list</label>
+                                                <input type="text" class="form-control w-50" id="setting-input-1"
+                                                       value="{{ historyListSize }}" name="historyListSize" required>
                                             </div>
                                             <button type="submit" class="btn app-btn-primary">Save Changes</button>
                                         </form>
@@ -64,32 +70,35 @@
                             <div class="row align-items-center gx-3">
                                 <div class="col-auto">
                                     <div class="app-icon-holder">
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-sliders"
-                                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd"
-                                                  d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z"></path>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                             fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                                            <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+                                            <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
                                         </svg>
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <h4 class="app-card-title">Отображаемые валюты</h4>
+                                    <h4 class="app-card-title">Displayed currencies
+                                    </h4>
                                 </div>
                             </div>
                         </div>
                         <div class="app-card-body px-4 w-100">
-                            <div class="item py-3">
+                            <div class="item py-3 pt-0">
                                 <div class="row justify-content-between align-items-center">
                                     <div class="col-auto">
 
-                                        {% for currency in currencies  %}
+                                        {% for currency in currencies %}
                                             <p>{{ currency.code }}</p>
                                         {% endfor %}
 
                                         <form class="settings-form" id="currency_select_form">
                                             <div class="mb-3">
-                                                <label for="setting-input-2" class="form-label">Выберите предпочитаемые валюты</label><br>
-                                                <select id="setting-input-2" class="selectpicker" multiple data-size="4" name="currency_select" required>
-                                                    {% for currency in currencies  %}
+                                                <label for="setting-input-2" class="form-label">Select your preferred
+                                                    currencies converter</label><br>
+                                                <select id="setting-input-2" class="selectpicker" multiple data-size="4"
+                                                        name="currency_select" required>
+                                                    {% for currency in currencies %}
 
                                                         {% set selected = '' %}
 
@@ -124,7 +133,6 @@
 
         $(document).ready(function () {
 
-            // $("body").fadeIn(2000);
             $("body").show();
 
             $('#currency_select_form').on("submit", function (event) {
@@ -136,7 +144,8 @@
                     type: 'POST',
                     url: 'settings/set-currency',
                     data: {selectedCurrencies: selectedCurrencies},
-                    success: (response) => {}
+                    success: (response) => {
+                    }
                 });
 
             });
@@ -150,7 +159,8 @@
                     type: 'POST',
                     url: 'settings/set-history-size',
                     data: formData,
-                    success: (response) => {}
+                    success: (response) => {
+                    }
                 });
 
             });

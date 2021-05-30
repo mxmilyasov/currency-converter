@@ -22,7 +22,7 @@ class ConvertController extends BaseController
         $currencies = $currencyRepo->getCurrencies();
         $lastConvertResult = $converterResultRepo->getLastConvertResult();
 
-        ['fromCurrency' => $fromCurrencyCode, 'toCurrency' => $toCurrencyCode] = $lastConvertResult;
+        ['fromCurrency' => $fromCurrencyCode, 'toCurrency' => $toCurrencyCode, 'rate' => $rate] = $lastConvertResult;
 
         return $this->view->render(
             'include/converter.html.twig',
@@ -30,7 +30,8 @@ class ConvertController extends BaseController
                 'currencies' => $currencies,
                 'fromCurrencySymbol' => $fromCurrencyCode,
                 'toCurrencySymbol' => $toCurrencyCode,
-                'lastConvertResult' => $lastConvertResult
+                'lastConvertResult' => $lastConvertResult,
+                'lastConvertRate' => $rate
             ]
         );
     }

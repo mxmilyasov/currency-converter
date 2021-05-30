@@ -30,7 +30,7 @@ class ConverterResultRepository extends EntityRepository
     public function getLastConvertResult(): array|false
     {
         $db = Database::getConnection();
-        $sql = 'SELECT fromCurrency, toCurrency, convertResult, amount, createdAt 
+        $sql = 'SELECT fromCurrency, toCurrency, convertResult, rate, amount, createdAt 
                 FROM converter_results ORDER BY createdAt DESC LIMIT 1';
 
         return $db->query($sql)->fetch(PDO::FETCH_ASSOC);
